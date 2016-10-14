@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jrxmlcompiler" default="compile" basedir=".">
+
+  <description>Jrxml Compile</description>
+
+  <property file="build.properties" />
+
+  <path id="classpath">
+    <fileset dir="${project.root}/${project.main.lib}">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+
+  <target name="compile">
+    <taskdef name="jrc" classname="net.sf.jasperreports.ant.JRAntCompileTask">
+      <classpath refid="classpath" />
+    </taskdef>
+    <jrc destdir="${project.root}/${project.main.report}" tempdir="${project.root}/${project.main.report}"
+        keepjava="false">
+      <src>
+        <fileset dir="${project.root}/${project.main.report}">
+          <include name="**/*.jrxml" />
+        </fileset>
+      </src>
+      <classpath refid="classpath" />
+    </jrc>
+  </target>
+
+  <!-- 生成ファイル名は   index.jasper ->> index.jasper.jrxml  -->
+  <target name="decompile">
+    <taskdef name="jrdc" classname="net.sf.jasperreports.ant.JRAntDecompileTask">
+      <classpath refid="classpath" />
+    </taskdef>
+    <jrdc destdir="${project.root}/${project.main.report}">
+      <src>
+        <fileset dir="${project.root}/${project.main.report}">
+          <include name="**/*.jasper" />
+        </fileset>
+      </src>
+      <classpath refid="classpath" />
+    </jrdc>
+  </target>
+
+</project>

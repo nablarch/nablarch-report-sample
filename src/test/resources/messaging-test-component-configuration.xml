@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  ./component-configuration.xsd">
+
+  <!-- プロダクション用の設定読み込み -->
+  <import file="messaging-component-configuration.xml" />
+
+  <!-- テスト用の上書き設定-->
+  <import file="override.xml" />
+  <import file="override/messaging/handler.xml" />
+  <import file="override/messaging/messaging.xml" />
+
+  <component name="initializer"
+      class="nablarch.core.repository.initialization.BasicApplicationInitializer">
+    <property name="initializeList">
+      <list>
+        <!-- batch/db.xml:条件オブジェクトのキャッシュ -->
+        <component-ref name="statementValueObjectCache" />
+        <!-- common/message.xml:文字列リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
+        <!-- common/validation.xml:バリデーション情報のキャッシュ -->
+        <component-ref name="formDefinitionCache" />
+        <!-- common/validation.xml:バリデーション -->
+        <component-ref name="validationManager" />
+        <!-- common/idgenerator.xml:ID採番モジュール -->
+        <component-ref name="idGenerator" />
+        <component-ref name="oracleSequenceIdGenerator" />
+        <!-- common/date.xml:業務日付コンポーネント -->
+        <component-ref name="businessDateProvider" />
+        <!-- common/code.xml:コードのローダ -->
+        <component-ref name="codeLoader" />
+        <!-- common/code.xml:コードのキャッシュ -->
+        <component-ref name="codeCache" />
+        <!-- batch/handler/processStop.xml:処理停止ハンドラ -->
+        <component-ref name="processStopHandler" />
+        <!-- batch/handler/duplicateProcessCheck:２重起動防止ハンドラ -->
+        <component-ref name="duplicateProcessChecker" />
+        <!-- messaging/handler/serviceAvailability.xml:開閉局ハンドラ -->
+        <component-ref name="serviceAvailability" />        
+        <!-- メッセージングプロバイダ -->
+        <component-ref name="messagingProvider" />
+        <!-- 認可判定ハンドラ -->
+        <component-ref name="permissionFactory" />        
+      </list>
+    </property>
+  </component>
+</component-configuration>

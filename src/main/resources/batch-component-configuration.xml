@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  ./component-configuration.xsd">
+
+  <!-- バッチ用コンフィグファイル -->
+  <config-file file="batch/batch.config" />
+  <!-- データベース接続設定 -->
+  <config-file file="db.config" />
+  <!-- アプリケーション固有の設定値項目 -->
+  <config-file file="application/ss11ac.config" />
+
+  <!--
+  共通設定の読み込み
+  -->
+  <!-- 日付関連設定 -->
+  <import file="common/date.xml" />
+  <!-- メッセージ設定 -->
+  <import file="common/message.xml" />
+  <!-- ID採番設定 -->
+  <import file="common/idgenerator.xml" />
+  <!-- コード設定 -->
+  <import file="common/code.xml" />
+  <!-- バリデーション設定 -->
+  <import file="common/validation.xml" />
+  <!-- パスワード暗号化モジュールの設定 --> 
+  <import file="common/passwordEncryptor.xml" />
+  <!-- 帳票ライブラリ -->
+  <import file="common/report.xml" />
+  <!--
+  バッチ固有の設定読み込み
+  -->
+  <!-- データベース設定-->
+  <import file="batch/db.xml" />
+  <!-- ハンドラ設定 -->
+  <import file="batch/handler.xml" />
+  <!-- ファイルパス設置 -->
+  <import file="batch/file.xml" />
+
+  <!-- 初期化が必要なコンポーネント -->
+  <component name="initializer"
+      class="nablarch.core.repository.initialization.BasicApplicationInitializer">
+    <property name="initializeList">
+      <list>
+        <!-- batch/db.xml:条件オブジェクトのキャッシュ -->
+        <component-ref name="statementValueObjectCache" />
+        <!-- common/message.xml:文字列リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
+        <!-- common/validation.xml:バリデーション情報のキャッシュ -->
+        <component-ref name="formDefinitionCache" />
+        <!-- common/validation.xml:バリデーション -->
+        <component-ref name="validationManager" />
+        <!-- common/idgenerator.xml:ID採番モジュール -->
+        <component-ref name="idGenerator" />
+        <!-- common/date.xml:業務日付コンポーネント -->
+        <component-ref name="businessDateProvider" />
+        <!-- common/code.xml:コードのローダ -->
+        <component-ref name="codeLoader" />
+        <!-- common/code.xml:コードのキャッシュ -->
+        <component-ref name="codeCache" />
+        <!-- batch/handler/processStop.xml:処理停止ハンドラ -->
+        <component-ref name="processStopHandler" />
+        <!-- batch/handler/duplicateProcessCheck:２重起動防止ハンドラ -->
+        <component-ref name="duplicateProcessChecker" />
+        <!-- batch/file.xml:レジューム機能 -->
+        <component-ref name="resumePointManager" />
+      </list>
+    </property>
+  </component>
+</component-configuration>

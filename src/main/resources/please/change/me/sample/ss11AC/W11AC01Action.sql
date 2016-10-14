@@ -1,0 +1,45 @@
+-- 
+-- 条件指定によるユーザ情報照会
+--
+SELECT_USER_BY_CONDITION = 
+SELECT
+  SA.LOGIN_ID,
+  SA.USER_ID,
+  SA.USER_ID_LOCKED,
+  USR.KANJI_NAME,
+  USR.KANA_NAME,
+  USR.MAIL_ADDRESS,
+  USR.EXTENSION_NUMBER_BUILDING,
+  USR.EXTENSION_NUMBER_PERSONAL,
+  UGRP.UGROUP_ID,
+  UGRP.UGROUP_NAME
+FROM
+    USERS USR
+INNER JOIN
+    UGROUP_SYSTEM_ACCOUNT USA
+ON
+    USR.USER_ID = USA.USER_ID
+INNER JOIN
+    SYSTEM_ACCOUNT SA
+ON
+    USR.USER_ID = SA.USER_ID
+INNER JOIN
+    UGROUP UGRP
+ON
+    UGRP.UGROUP_ID = USA.UGROUP_ID
+WHERE
+    $if (loginId) {SA.LOGIN_ID = :loginId}
+    AND $if (kanjiName) {USR.KANJI_NAME LIKE :%kanjiName%}
+    AND $if (kanaName) {USR.KANA_NAME  LIKE :%kanaName%}
+    AND $if (ugroupId) {UGRP.UGROUP_ID = :ugroupId}
+    AND $if (userIdLocked) {SA.USER_ID_LOCKED = :userIdLocked}
+$sort (sortId) {
+    (loginId_asc    SA.LOGIN_ID)
+    (loginId_desc   SA.LOGIN_ID DESC)
+    (kanjiName_asc  USR.KANJI_NAME, SA.LOGIN_ID)
+    (kanjiName_desc USR.KANJI_NAME DESC, SA.LOGIN_ID)
+    (kanaName_asc   USR.KANA_NAME, SA.LOGIN_ID)
+    (kanaName_desc  USR.KANA_NAME DESC, SA.LOGIN_ID)
+}
+
+

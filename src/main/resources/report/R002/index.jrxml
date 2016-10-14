@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.1.final using JasperReports Library version 5.6.1  -->
+<!-- 2014-11-18T15:05:03 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="注文一覧" pageWidth="842" pageHeight="888" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4be0ca7b-6871-4d84-8717-6ff81807bda6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PermissionUnit"/>
+	<style name="defaultStyle" isDefault="true" fontName="SansSerif" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H" isPdfEmbedded="true"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="permissionDataset" uuid="cf4e741b-a59f-4919-b4ef-d834937bb34a">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="permissionUnitId" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="permissionUnitName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="execLoginId" class="java.lang.String"/>
+	<parameter name="loginId" class="java.lang.String"/>
+	<parameter name="kanjiName" class="java.lang.String"/>
+	<parameter name="kanaName" class="java.lang.String"/>
+	<parameter name="extensionNumber" class="java.lang.String"/>
+	<parameter name="mobilePhoneNumber" class="java.lang.String"/>
+	<parameter name="mailAddress" class="java.lang.String"/>
+	<parameter name="ugroupInfo" class="java.lang.String"/>
+	<parameter name="permissionDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<title>
+		<band height="721">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="6" width="220" height="38" backcolor="#FFFFFF" uuid="efb18ab4-7c8a-40a8-8ad9-40ecb2877c3f"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="20" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ユーザー基本情報]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="487" y="53" width="86" height="20" uuid="c4ff3cfa-5a82-4adc-a6ce-678f363dca7e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[実行ユーザーＩＤ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="487" y="83" width="86" height="20" uuid="fe00a9c8-b21e-428e-88c9-0442a07169f2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="11"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[出力年月日]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="573" y="53" width="106" height="20" uuid="544e1ce7-b15a-4f6e-9c66-9cf6f7c1dfd5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{execLoginId}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd" isBlankWhenNull="true">
+				<reportElement x="573" y="83" width="106" height="20" uuid="b7465289-bad2-4186-9a18-963ecf355fe9"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="163" width="119" height="28" backcolor="#CCCCFF" uuid="ee537b44-c961-49c6-b084-9ea7a0c50169"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[ログインID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="388" width="119" height="28" backcolor="#CCCCFF" uuid="9cc64af6-a837-432c-bf80-19986b914928"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[携帯電話番号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="342" width="119" height="28" backcolor="#CCCCFF" uuid="6e619bc2-556e-4601-aa97-c4859a98e175"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[内線番号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="208" width="119" height="28" backcolor="#CCCCFF" uuid="a6e0ccb4-1379-4d17-8b5b-8808c335b046"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[漢字氏名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="252" width="119" height="28" backcolor="#CCCCFF" uuid="4796d9d0-0318-4f7a-907c-c009244ff980"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[カナ氏名]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="369" y="162" width="310" height="30" uuid="b50a4d55-041d-427c-8c85-4713f27e01a5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{loginId}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="369" y="207" width="310" height="30" uuid="acd11ce5-5735-4af6-9d81-197716ad2f34"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kanjiName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="369" y="252" width="310" height="30" uuid="5b7d59f1-e1ab-4de8-b9cd-5d8accdf0f02"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kanaName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="369" y="341" width="310" height="30" uuid="f77e1e08-84cc-4577-8af4-f7bbc0845bd2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{extensionNumber}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="369" y="387" width="310" height="30" uuid="eaaee903-8326-445b-8e55-a8ec85a23edd"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mobilePhoneNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="297" width="119" height="28" backcolor="#CCCCFF" uuid="c0747026-69b1-47b6-9fe3-357ecc064c9b"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[メールアドレス]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="370" y="296" width="310" height="30" uuid="898f5167-7305-4347-9567-882b935d0b0e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mailAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="120" width="200" height="30" uuid="39e8417d-e831-41ef-be18-9987a6058d99"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[■ ユーザ基本情報]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="437" width="200" height="30" uuid="370a64d8-3642-4f12-ba7c-3be9348f7adf"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[■権限情報]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="489" width="119" height="28" backcolor="#CCCCFF" uuid="7c36fd56-373e-4a38-8e5b-cb58343a9488"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[グループ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="369" y="488" width="310" height="28" uuid="4552d734-e26e-4b63-a99c-be9353ee5fbc"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ugroupInfo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="533" width="200" height="30" uuid="49c69738-46b4-4243-8487-8bdd557a9d42"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[■認可単位情報]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="580" width="119" height="28" backcolor="#CCCCFF" uuid="1a8dde7f-e6fc-4e71-beba-27fa14eba2c9"/>
+				<box topPadding="1" leftPadding="3" bottomPadding="1" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[認可単位]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="369" y="580" width="310" height="100" uuid="fdc46e3c-477d-4dfa-a07a-81afa4f3795d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<componentElement>
+					<reportElement x="0" y="0" width="180" height="30" uuid="a665cd70-d20b-4fba-a95d-0185be0ad28f">
+						<property name="net.sf.jasperreports.export.headertoolbar.table.name" value=""/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="permissionDataset" uuid="c2583fd6-74e5-4361-afa4-a066508a2432">
+							<dataSourceExpression><![CDATA[$P{permissionDS}]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="30" width="180">
+							<textField>
+								<reportElement x="10" y="10" width="70" height="20" uuid="57fc480d-2304-440a-83d9-dc58ade12964"/>
+								<box>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{permissionUnitId}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="80" y="10" width="100" height="20" uuid="bb771e5b-6f1b-4bd1-a0fb-0eaf156de655"/>
+								<box>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{permissionUnitName}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="20" splitType="Prevent">
+			<textField>
+				<reportElement x="270" y="0" width="120" height="20" uuid="f2263627-0524-46b8-9468-2fd2f2f2aa04"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="390" y="0" width="120" height="20" uuid="8c8e683e-55d5-4f07-9922-de723a0b73b0"/>
+				<box leftPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

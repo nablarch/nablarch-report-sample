@@ -1,0 +1,21 @@
+#-------------------------------------------------------------------------------
+# ユーザ情報登録電文の業務データ部レイアウト定義
+#-------------------------------------------------------------------------------
+file-type:        "Fixed" # 固定長
+text-encoding:    "MS932" # 文字列型フィールドの文字エンコーディング
+record-length:    420     # 各レコードの長さ
+record-separator: "\r\n"  # 改行コード
+
+[data]
+1   dataKbn                     X(1)  "2"   # レコード区分(固定)
+2   loginId                     X(20)       # ログインID
+22  kanjiName                   N(100)      # 漢字氏名
+122 kanaName                    N(100)      # カナ氏名
+222 ?filler1                    X(50)       # 空白領域
+272 mailAddress                 X(100)      # メールアドレス
+372 extensionNumberBuilding     X(2)        # 内線番号（ビル番号）
+374 extensionNumberPersonal     X(4)        # 内線番号（個人番号）
+378 mobilePhoneNumberAreaCode   X(3)        # 携帯番号（市外）
+381 mobilePhoneNumberCityCode   X(4)        # 携帯電話番号(市内)
+385 mobilePhoneNumberSbscrCode  X(4)        # 携帯電話番号(加入)
+389 ?filler2                    X(32)       # 空白領域

@@ -1,0 +1,46 @@
+#-------------------------------------------------------------------------------
+# 削除ユーザ一覧の固定長ファイルフォーマット
+#-------------------------------------------------------------------------------
+file-type:        "Fixed" # 固定長
+text-encoding:    "MS932" # 文字列型フィールドの文字エンコーディング
+record-length:    420     # 各レコードの長さ
+record-separator: "\r\n"  # 改行コード(crlf)
+
+[Classifier] # レコードタイプ識別フィールド定義
+1   dataKbn   X(1)   #       データ区分
+                     #    1: ヘッダー、2: データレコード
+                     #    8: トレーラー、9: エンドレコード
+
+[header]  # ヘッダーレコード
+dataKbn = "1"
+1   dataKbn     X(1)  "1"   # データ区分
+2   sysDate     X(8)        # システム日付
+10  ?filler     X(411)      # 空白領域
+
+
+[data] # データレコード
+dataKbn  =  "2"
+1   dataKbn                     X(1)  "2"   # データ区分
+2   userId                      X(10)       # ユーザID
+12  loginId                     X(20)       # ログインID
+32  kanjiName                   N(100)      # 漢字氏名
+132 kanaName                    N(100)      # カナ氏名
+232 ?filler1                    X(50)       # 空白領域
+282 mailAddress                 X(100)      # メールアドレス
+382 extensionNumberBuilding     X(2)        # 内線番号（ビル番号）
+384 extensionNumberPersonal     X(4)        # 内線番号（個人番号）
+388 mobilePhoneNumberAreaCode   X(3)        # 携帯番号（市外）
+391 mobilePhoneNumberCityCode   X(4)        # 携帯電話番号(市内)
+395 mobilePhoneNumberSbscrCode  X(4)        # 携帯電話番号(加入)
+399 ?filler2                    X(22)       # 空白領域
+
+[trailer] # トレーラレコード
+dataKbn = "8"
+1   dataKbn                     X(1)  "8"   # データ区分
+2   totalCount                  X(19)       # 総件数
+21  ?filler                     X(400)      # 空白領域
+
+[end]
+dataKbn = "9"
+1   dataKbn                     X(1)  "9"    # データ区分
+2   ?filler                     X(419)      # 空白領域

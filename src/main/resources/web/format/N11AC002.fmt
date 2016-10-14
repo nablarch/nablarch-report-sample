@@ -1,0 +1,19 @@
+#-------------------------------------------------------------------------------
+# ユーザ一括登録の可変長ファイルフォーマット
+#-------------------------------------------------------------------------------
+text-encoding:     "Windows-31J"     # 文字列型フィールドの文字エンコーディング
+record-separator:  "\r\n"            # 改行コード(crlf)
+file-type:         "Variable"        # 可変長(CSV)
+field-separator:   ","               # フィールド区切り文字
+quoting-delimiter: "\""              # 囲み文字
+
+[default]
+1  loginId                     X           # ログインID
+2  kanjiName                   N           # 漢字氏名
+3  kanaName                    N           # カナ氏名
+4  mailAddress                 X           # メールアドレス
+5  extensionNumberBuilding     X           # 内線番号（ビル番号）
+6  extensionNumberPersonal     X           # 内線番号（個人番号）
+7  mobilePhoneNumberAreaCode   X           # 携帯番号（市外）
+8  mobilePhoneNumberCityCode   X           # 携帯電話番号(市内)
+9  mobilePhoneNumberSbscrCode  X           # 携帯電話番号(加入)

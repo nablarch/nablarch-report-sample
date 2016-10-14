@@ -1,0 +1,25 @@
+#-------------------------------------------------------------------------------
+# ユーザ一覧照会結果のCSVファイルフォーマット
+#-------------------------------------------------------------------------------
+file-type:        "Variable"
+text-encoding:    "Shift_JIS" # 文字列型フィールドの文字エンコーディング
+record-separator: "\n"        # レコード区切り文字
+field-separator:  ","         # フィールド区切り文字
+
+[header]
+1   loginId                   N "ログインID"
+2   kanjiName                 N "漢字氏名"
+3   kanaName                  N "カナ氏名"
+4   group                     N "グループ"
+5   extensionNumber           N "内線番号"
+6   mailAddress               N "メールアドレス"
+7   userIdLockedName          N "ユーザIDロック"
+
+[data]
+1   loginId                   X "ログインID"
+2   kanjiName                 N "漢字氏名"
+3   kanaName                  N "カナ氏名"
+4   group                     N "グループ"
+5   extensionNumber           X "内線番号"
+6   mailAddress               X "メールアドレス"
+7   userIdLockedName          N "ユーザIDロック"
