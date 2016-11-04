@@ -2,7 +2,7 @@ apply plugin: 'war'
 apply plugin: 'jetty'
 
 group = 'com.nablarch.report'
-version = '1.0.0'
+version = '5u7'
 description = '帳票ライブラリサンプル'
 
 buildscript {
