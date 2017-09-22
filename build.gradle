@@ -2,7 +2,7 @@ apply plugin: 'war'
 apply plugin: 'jetty'
 
 group = 'com.nablarch.report'
-version = '5u10'
+version = '5u11'
 description = '帳票ライブラリサンプル'
 
 buildscript {
@@ -39,7 +39,7 @@ repositories {
 
 dependencyManagement {
   imports {
-    mavenBom 'com.nablarch.profile:nablarch-bom:5u10'
+    mavenBom 'com.nablarch.profile:nablarch-bom:5u11'
   }
   applyMavenExclusions false
 }

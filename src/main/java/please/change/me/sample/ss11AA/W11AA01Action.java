@@ -88,7 +88,7 @@ public class W11AA01Action extends DbAccessSupport {
                 result.get(0).getString("KANJI_NAME"));
         context.setSessionScopedVar("commonHeaderLoginDate",
                 BusinessDateUtil.getDate());
-        return new HttpResponse("redirect:///action/ss11AB/W11AB01Action/RW11AB0101");
+        return new HttpResponse(303, "redirect:///action/ss11AB/W11AB01Action/RW11AB0101");
     }
     
     /**
