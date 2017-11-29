@@ -30,6 +30,7 @@ repositories {
   mavenLocal()
   maven { url "${developLibUrl}" }
   jcenter()
+  maven { url "http://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/" }
   
   // サードパーティ製ライブラリの格納リポジトリ
   if(project.hasProperty('nablarchExtRepoUrl')) {

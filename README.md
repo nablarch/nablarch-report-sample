@@ -1,3 +1,10 @@
+# nablarch-report-sample
+
+| master | develop |
+|:-----------|:------------|
+|[![Build Status](https://travis-ci.org/nablarch/nablarch-report-sample.svg?branch=master)](https://travis-ci.org/nablarch/nablarch-report-sample)|[![Build Status](https://travis-ci.org/nablarch/nablarch-report-sample.svg?branch=develop)](https://travis-ci.org/nablarch/nablarch-report-sample)|
+
+
 # 帳票サンプルアプリケーションを起動するために必要な作業
 以下の手順に従って、サンプルアプリケーションを起動してください。
 
